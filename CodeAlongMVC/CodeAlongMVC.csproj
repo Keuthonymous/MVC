@@ -118,10 +118,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\BooksAutomatedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataAccess\LibraryContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221307243_Initial.cs" />
+    <Compile Include="Migrations\201705221307243_Initial.Designer.cs">
+      <DependentUpon>201705221307243_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
@@ -172,8 +177,17 @@
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Book\Details.cshtml" />
     <Content Include="Views\Book\Create.cshtml" />
+    <Content Include="Views\BooksAutomated\Create.cshtml" />
+    <Content Include="Views\BooksAutomated\Delete.cshtml" />
+    <Content Include="Views\BooksAutomated\Details.cshtml" />
+    <Content Include="Views\BooksAutomated\Edit.cshtml" />
+    <Content Include="Views\BooksAutomated\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705221307243_Initial.resx">
+      <DependentUpon>201705221307243_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

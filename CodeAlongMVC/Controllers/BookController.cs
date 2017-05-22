@@ -14,22 +14,22 @@ namespace CodeAlongMVC.Controllers
 
         public BookController()
         {
-            Console.WriteLine("Visited Constructor");
+            repo = new BookRepository();
         }
 
         // GET: Book
         public ActionResult Index()
         {
-            return View(BookRepository.GetAllBooks());
+            return View(repo.GetAllBooks());
         }
 
         public ActionResult Details(int Id)
         {
-            return View(BookRepository.GetBookById(Id));
+            return View(repo.GetBookById(Id));
         }
         public ActionResult Delete(Book b)
         {
-            BookRepository.RemoveBook(b);
+            repo.RemoveBook(b);
             return RedirectToAction("Index");
         }
 
@@ -42,7 +42,7 @@ namespace CodeAlongMVC.Controllers
         [HttpPost]
         public ActionResult Create(Book b)
         {
-            BookRepository.AddNewBook(b);
+            repo.AddNewBook(b);
             return RedirectToAction("Index");
         }
     }
