@@ -1,4 +1,5 @@
-﻿using CodeAlongMVC.Repositories;
+﻿using CodeAlongMVC.Models;
+using CodeAlongMVC.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,5 +27,19 @@ namespace CodeAlongMVC.Controllers
         {
             return View(repo.GetBookById(Id));
         }
+
+        //[HttpGet]
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public ActionResult Create(Book b)
+        //{
+        //    List<Book> books = repo.AddNewBook(b);
+        //    return View(books);
+        //    //return View();
+        //}
     }
 }
