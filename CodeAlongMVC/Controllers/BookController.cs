@@ -14,32 +14,36 @@ namespace CodeAlongMVC.Controllers
 
         public BookController()
         {
-            repo = new BookRepository();
+            Console.WriteLine("Visited Constructor");
         }
 
         // GET: Book
         public ActionResult Index()
         {
-            return View(repo.GetAllBooks());
+            return View(BookRepository.GetAllBooks());
         }
 
         public ActionResult Details(int Id)
         {
-            return View(repo.GetBookById(Id));
+            return View(BookRepository.GetBookById(Id));
+        }
+        public ActionResult Delete(Book b)
+        {
+            BookRepository.RemoveBook(b);
+            return RedirectToAction("Index");
         }
 
-        //[HttpGet]
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        //[HttpPost]
-        //public ActionResult Create(Book b)
-        //{
-        //    List<Book> books = repo.AddNewBook(b);
-        //    return View(books);
-        //    //return View();
-        //}
+        [HttpPost]
+        public ActionResult Create(Book b)
+        {
+            BookRepository.AddNewBook(b);
+            return RedirectToAction("Index");
+        }
     }
 }
